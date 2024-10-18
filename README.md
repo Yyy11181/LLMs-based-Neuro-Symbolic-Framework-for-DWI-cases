@@ -34,7 +34,7 @@ In the drunk driving cases, we design two FOL rules in the logic module. These r
 | C(x)      | X's blood alcohol concentration (BAC) is below 170mg/100ml (inclusive). |
 | D(x)      | X's BAC is below 200mg/100ml (inclusive).                              |
 | E(x)      | X drives a motorcycle under the influence of alcohol.                  |
-| N(x)      | X does not meet any of the 8 aggravating circumstances (AC).           |
+| N(x)      | X does not meet any of the eight aggravating circumstances (AC).           |
 | F(x)      | The AC1, X causes minor injury or more serious harm to another person.  |
 | G(x)      | The AC2, X drives under the influence of alcohol on a highway.         |
 | H(x)      | The AC3, X drives a commercial motor vehicle, a medium or large motor vehicle, or drives while severely overloaded, over capacity, or speeding. |
