@@ -66,4 +66,4 @@ Thus, under the same experimental conditions as in private lending dispute cases
 
 According to the Table3, it can be observed that adding only rule1 results in performance improvements across all metrics compared to the model without any rules, while adding only rule2 leads to declines in all metrics. However, when both rule1 and rule2 are applied together, the model achieves the highest improvement across all metrics, with Mac.P increasing by 2.54%, Mac.R by 0.87%, Mac.F1 by 1.6%, and Mic.F1 by 1.43%. This finding is consistent with our results in private lending cases, further indicating that different rules have a complementary effect. 
 
-Therefore, analyzing the empirical results of this drunk driving case demonstrates that our proposed framework is not limited to a specific case type; it can be adapted based on case characteristics, showing a degree of applicability and scalability.
+Therefore, analyzing the experimental results of this drunk driving case demonstrates that our proposed framework is not limited to a specific case type; it can be adapted based on case characteristics, showing a degree of applicability and scalability.
