@@ -24,7 +24,7 @@ We construct a new drunk driving cases dataset in Zhejiang Province, China, whic
 To better align with the characteristics of the current task, we simplify the DNNs module in our proposed framework. Specifically, we use an LSTM to encode the fact descriptions, followed by a fully connected layer to predict whether a case should proceed to prosecution. The maximum length for fact descriptions is set to 200, with a hidden layer dimension of 50. Additionally, when extracting fact elements using LLMs, we employed the latest [GPT-4o model ](https://openai.com/index/hello-gpt-4o/) from OpenAI, with other parameter settings kept consistent with those used in private lending cases.
 
 ## The FOL rules
-In the drunk driving cases, we design two FOL rules in the logic module. These rules are based on the [Meeting Minutes on Several Issues Regarding the Handling of Drunk Driving Cases (2019) from Zhejiang Province] (http://www.fyjc.gov.cn/articleview.do?art\_id=939). Also, we have listed the relevant variable expressions in Table2 that will be used in the FOL rules.
+In the drunk driving cases, we design two FOL rules in the logic module. These rules are based on the [Meeting Minutes on Several Issues Regarding the Handling of Drunk Driving Cases (2019) from Zhejiang Province] (http://www.fyjc.gov.cn/articleview.do?art\_id=939). Also, we have listed the relevant fact elements extracted by LLMs in Table2, which will be used in the FOL rules.
 #### Table2 Key Variables in the FOL Rules
 | Notation  | Details                                                                 |
 |-----------|-------------------------------------------------------------------------|
