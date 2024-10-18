@@ -26,21 +26,44 @@ To better align with the characteristics of the current task, we simplify the DN
 ## The FOL rules
 In the drunk driving cases, we design two FOL rules in the logic module. These rules are based on the [Meeting Minutes on Several Issues Regarding the Handling of Drunk Driving Cases (2019) from Zhejiang Province] (http://www.fyjc.gov.cn/articleview.do?art\_id=939). Also, we have listed the relevant variable expressions in Table2 that will be used in the FOL rules.
 #### Table2 Key Variables in the FOL Rules
+| Notation  | Details                                                                 |
+|-----------|-------------------------------------------------------------------------|
+| Y         | Non-prosecution                                                          |
+| A(x)      | X drives under the influence of alcohol.                                |
+| B(x)      | X pleads guilty and shows remorse.                                      |
+| C(x)      | X's blood alcohol concentration (BAC) is below 170mg/100ml (inclusive). |
+| D(x)      | X's BAC is below 200mg/100ml (inclusive).                              |
+| E(x)      | X drives a motorcycle under the influence of alcohol.                  |
+| N(x)      | X does not meet any of the 8 aggravating circumstances (AC).           |
+| F(x)      | The AC1, X causes minor injury or more serious harm to another person.  |
+| G(x)      | The AC2, X drives under the influence of alcohol on a highway.         |
+| H(x)      | The AC3, X drives a commercial motor vehicle, a medium or large motor vehicle, or drives while severely overloaded, over capacity, or speeding. |
+| I(x)      | The AC4, X drives without a valid license.                              |
+| J(x)      | The AC5, X drives a vehicle that does not meet safety standards or a vehicle that has been scrapped. |
+| K(x)      | The AC6, X attempts to flee or resist inspection when being stopped by authorities. |
+| L(x)      | The AC7, X refuses to appear in court or flees during the litigation period. |
+| M(x)      | The AC8, X has been prosecuted for drunk driving within the past three years or for driving under the influence within the past five years. |
 
-| Notation | Details                                                                 |
-|----------|-------------------------------------------------------------------------|
-| \( Y \)  | Non-prosecution                                                          |
-| \( A(x) \) | \( X \) drives under the influence of alcohol.                         |
-| \( B(x) \) | \( X \) pleads guilty and shows remorse.                               |
-| \( C(x) \) | \( X \)'s blood alcohol concentration (BAC) is below 170mg/100ml (inclusive). |
-| \( D(x) \) | \( X \)'s BAC is below 200mg/100ml (inclusive).                       |
-| \( E(x) \) | \( X \) drives a motorcycle under the influence of alcohol.           |
-| \( N(x) \) | \( X \) does not meet any of the 8 aggravating circumstances (AC).     |
-| \( F(x) \) | The AC1, \( X \) causes minor injury or more serious harm to another person. |
-| \( G(x) \) | The AC2, \( X \) drives under the influence of alcohol on a highway.   |
-| \( H(x) \) | The AC3, \( X \) drives a commercial motor vehicle, a medium or large motor vehicle, or drives while severely overloaded, over capacity, or speeding. |
-| \( I(x) \) | The AC4, \( X \) drives without a valid license.                        |
-| \( J(x) \) | The AC5, \( X \) drives a vehicle that does not meet safety standards or a vehicle that has been scrapped. |
-| \( K(x) \) | The AC6, \( X \) attempts to flee or resist inspection when being stopped by authorities. |
-| \( L(x) \) | The AC7, \( X \) refuses to appear in court or flees during the litigation period. |
-| \( M(x) \) | The AC8, \( X \) has been prosecuted for drunk driving within the past three years or for driving under the influence within the past five years. |
+The first judgment rule is derived from the provision on non-prosecution, which states: ``For drunk driving cases where the blood alcohol concentration (BAC) is below 170mg/100ml, the individual pleads guilty and shows remorse, and none of the following 8 aggravating circumstances apply, the offense is minor, and prosecution may be waived or criminal punishment may be exempted." Based on this provision and practical judicial experience from Chinese prosecutors, we construct the following FOL rule:
+
+<strong>Rule 1:</strong> A(x) ∧ B(x) ∧ C(x) ∧ N(X) → Y
+
+The second judgment rule is derived from the provision: ``For cases where the individual drives a motorcycle under the influence of alcohol, no minor injury or more serious harm is caused to another person, the individual pleads guilty and shows remorse, and the blood alcohol concentration (BAC) is below 200mg/100ml, prosecution may be waived or criminal punishment may be exempted." Similarly, based on practical judicial scenarios, we construct the following FOL rule:
+
+<strong>Rule 2:</strong> E(x) ∧ D(x) ∧ F(x) ∧ B(x) → Y
+
+## Results analysis
+Thus, under the same experimental conditions as in private lending dispute cases, we conduct experiments on drunk driving cases. Table3 shows the relevant experimental results.
+#### Table3 The Experimental Results
+
+| Method   | Mac.P | Mac.R | Mac.F1 | Mic.F1 |
+|----------|-------|-------|--------|--------|
+| no_rule  | 94.60 | 93.96 | 94.27  | 95.09  |
+| +rule1   | 96.58 | 94.86 | 95.66  | 96.32  |
+| +rule2   | 92.03 | 91.27 | 91.63  | 92.84  |
+| +all     | 97.14 | 94.83 | 95.87  | 96.52  |
+
+
+According to the Table3, it can be observed that adding only rule1 results in performance improvements across all metrics compared to the model without any rules, while adding only rule2 leads to declines in all metrics. However, when both rule1 and rule2 are applied together, the model achieves the highest improvement across all metrics, with Mac.P increasing by 2.54%, Mac.R by 0.87%, Mac.F1 by 1.6%, and Mic.F1 by 1.43%. This finding is consistent with our results in private lending cases, further indicating that different rules have a complementary effect. 
+
+Therefore, analyzing the empirical results of this drunk driving case demonstrates that our proposed framework is not limited to a specific case type; it can be adapted based on case characteristics, showing a degree of applicability and scalability.
