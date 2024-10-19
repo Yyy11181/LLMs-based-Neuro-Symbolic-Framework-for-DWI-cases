@@ -9,7 +9,7 @@ For further details, please refer to the experiment:
 - [Results Analysis](#results-analysis)
 
 ## Objective of the experiment
-To validate the scalability of our proposed framework, we apply it to the prosecution phase of DWI cases, aiming to assist prosecutors in identifying offenses related to dangerous driving due to intoxication. Therefore, based on the fact descriptions of the DWI cases, we utilize this framework to automatically predict whether a public prosecution should be initiated against the suspect.
+To validate the scalability of our proposed framework, we apply it to the prosecution phase of DWI cases, aiming to assist prosecutors in identifying offenses related to dangerous driving due to intoxication. Therefore, based on the fact descriptions of the DWI cases, we employ this framework to automatically predict whether a public prosecution should be initiated against the suspect.
 ## Dataset and experimental details
 We construct a new DWI cases dataset in Zhejiang Province, China, which contains a total of 4886 entries. All personal information in the dataset has been replaced with special characters. The proportions of the training set, validation set, and test set are 0.8:0.1:0.1, respectively. The statistics of the dataset are shown in Table1.
 #### Table1 Statistics of the DWI Cases Dataset
