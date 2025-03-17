@@ -1,7 +1,7 @@
 We propose a neuro-symbolic legal judgment prediction framework based on large language models (LLMs) for civil cases. Our framework possesses a certain degree of flexibility, enabling it to be applicable in other legal domains and adaptable to a broader range of legal cases. For example, we have successfully applied our method to the prosecution prediction of Driving While Intoxicated(DWI) cases within the criminal domain.
+
 For further details, please refer to the experiment:
 ## Additional Experiment
-
 ## Content
 - [Objective of the Experiment](#objective-of-the-experiment)
 - [Dataset and Experimental Details](#dataset-and-experimental-details)
